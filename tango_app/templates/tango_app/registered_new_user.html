@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %} Tango - Listagem de tasks {% endblock %}
+
+{% block content %}
+<main>
+    <h1>Tango</h1>
+    <h2>{{ last_name }}, {{first_name}}</h2>
+
+    <p>Your username is: {{ username }}</p>
+
+    <p>An e-mail will be sent to {{ email }}, whih your details.</p>
+
+
+    <p><a href="{% url 'Tango:login_page' %}">Please login</a></p>
+    
+</main>
+{% endblock %}

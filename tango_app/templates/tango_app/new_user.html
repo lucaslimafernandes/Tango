@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %} Tango - New User {% endblock %}
+
+{% block content %}
+<main>
+<h1>Create a new Task</h1>
+<div>
+    <form action="" method="POST" class="form">{% csrf_token %}
+        <p>
+            <label for="first_name">Name: </label><input type="text" name="first_name" required>
+        </p>
+        <p>
+            <label for="last_name">Surname: </label><input type="text" name="last_name" required>
+        </p>
+        {% if err == 'email1' %}
+        <p class="notice">
+            E-mail digitado anteriormente, já existe na base de dados!
+        </p>
+        {% endif %}
+        <p>
+            <label for="email">e-mail: </label><input type="email" name="email" required>
+        </p>
+        <p>
+            <label for="password">Password: <input type="password" pattern=".{8,}" class="password"></label>
+        </p>
+        <p>
+            A senha deve possuir 8 ou mais caracteres!
+        </p>
+        <p>
+            <label for="password-check">Confirm Password<input type="password" pattern=".{8,}" class="password"></label>
+        </p>
+        <p class="notice">
+            Por favor, confira a senha, as duas devem ser iguais!
+        </p>
+        <p>
+            <label for="show_pwd"><input type="checkbox" name="show_pwd" id="show_pwd"> Show Password</label>
+        </p>
+
+        <p>
+            <button type="reset">Resetar</button>
+            <button type="submit">Enviar</button>
+        </p>
+    
+    </form>
+</div>
+</main>
+<script src="/static/js/utils_newUser.js"></script>
+{% endblock %}

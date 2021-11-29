@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %} Tango - Tasks: {{ c.id }} {% endblock %}
+
+{% block content %}
+<main>
+<h1>{{ c.title }}</h1>
+<div>
+    <table>
+        <tr>
+            <th>ID</th>
+            <td>{{ c.id }}</td>
+        </tr>
+            <th>Data criação</th>
+            <td>{{ c.dt_init }}</td>
+        <tr>
+            <th>Status</th>
+            <td>{{ c.status }}</td>
+        </tr>
+        <tr>
+            <th>Priority</th>
+            <td>{{ c.priority }}</td>
+        </tr>
+            <th>Descrição</th>
+            <td>{{ c.description }}</td>
+        <tr></tr>    
+    </table>
+
+    <h2>Respostas</h2>
+    <table>
+        <tr>
+            <th>Status</th>
+            <th>Usuário</th>
+            <th>Descrição</th>
+            <th>Data</th>
+        </tr>
+        {% for r in responses %}
+            <tr>
+                <td>{{ r.status }}</td>
+                <td>{{ r.user_response }}</td>
+                <!--<td>{{ user.get_username}}</td>-->
+                <td>{{ r.description_response }}</td>
+                <td>{{ r.dt_response }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    {% if c.status != 'CLOSED' %}
+
+    <h2>Enviar</h2>
+    <form action="" method="post">{% csrf_token %}
+        <p>
+            <label for="response">Resposta: </label>
+        </p>
+        <p>
+            <textarea name="response" id="" cols="30" rows="10">Escrever a resposta aqui...</textarea>
+        </p>
+        <p>
+            <label for="">Encerrar:</label>
+            <input type="checkbox" name="encerrar" id="">
+            <button type="reset">Resetar</button>
+            <button type="submit">Enviar</button>
+        </p>
+    </form>
+
+    {% endif %}
+
+</div>
+</main>
+{% endblock %}

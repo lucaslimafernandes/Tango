@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+    <script src="{% static 'js/utils.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Tango - Listagem de tasks</title>
+    
+    <style>
+        main {
+            min-width: 280px;
+            max-width: 600px;
+            margin-top: 15%;
+            padding: 15px;
+            border-radius: 7px;
+        }
+    
+        p {
+            margin: 20px;
+        }
+    
+        button {
+            background-color: var(--cor0);
+            padding: 5px;
+            border-radius: 7px;
+            border-style: none;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+        }
+    
+        button:hover {
+            cursor: pointer;
+        }
+
+        .ll {
+            padding: 0px;
+            margin: 10px 0px 10px 0px;
+        }
+    
+    </style>
+
+</head>
+<body>
+
+    
+    
+    <main>
+        <table>    
+            <td class="table-login-td">
+                <form method="POST">{% csrf_token %}
+                    <p class="ll">
+                        <label for="username">Usuário:
+                            <input type="text" name="username">
+                        </label>
+                    </p>
+                    
+                    <p class="ll">
+                        <label for="password">Senha:
+                            <input type="password" name="password" id="">
+                        </label>
+                    </p>
+                    
+                    <p class="ll">
+                        <button type="submit" style="color: white;">Login</button>
+                    </p>
+                    
+                    {% if msgLogin == 'erro' %}
+                    <p>
+                        Erro, por gentileza, tente novamente!
+                    </p>
+                    {% elif msgLogin == 'invalido' %}
+                    <p>
+                        Login inválido ou senha inválido!
+                    </p>
+                    {% endif %}
+                </form>
+            </td>
+            <td>
+                <img src="/static/img/Tango120.png" id="img_center" alt="Tango logotipo">
+            </td>
+        </table>
+    </main>
+</body>
+</html>

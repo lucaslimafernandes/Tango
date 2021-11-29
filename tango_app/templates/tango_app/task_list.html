@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %} Tango - Listagem de tasks {% endblock %}
+
+{% block content %}
+<main>
+    <h1>Listar Tasks</h1>
+
+
+    <p>
+        <input type="checkbox" name="checklist" id="STARTED" checked> STARTED
+        <input type="checkbox" name="checklist" id="RESPONSES"checked> RESPONSES
+        <input type="checkbox" name="checklist" id="CLOSED"checked> CLOSED
+        <button id="marcar">Marcar todos</button>
+        <button id="desmarcar">Desmarcar todos</button>
+    </p>
+    
+    <table id="tlist">
+        <tr>
+            <th id="t">Título</th>
+            <th>Inicio</th>
+            <th>Fim</th>
+            <th>Priority</th>
+            <th>Status</th>
+            <th>Ação</th>
+            {% if solver == 'True' %}
+            <th class="th-red">Owner</th>
+            {% endif %}
+        </tr>
+        {% for c in tasks %}
+        <tr>
+            <td>{{ c.title }}</td>
+            <td>{{ c.dt_init|date:"SHORT_DATE_FORMAT" }}</td>
+            <td>{{ c.dt_conclusion|date:"SHORT_DATE_FORMAT" }}</td>
+            <td>{{ c.priority }}</td>
+            <td>{{ c.status }}</td>
+            <td><a href="{% url 'Tango:view_task' c.id %}" class="button">Ver</a></td>
+            {% if solver == 'True' %}
+            <td>{{ c.user_owner }}</td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </table>
+</main>
+{% endblock %}

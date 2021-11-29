@@ -1,0 +1,227 @@
+@charset "UTF-8";
+
+/*@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+@font-face {
+    font-family: 'Android';
+    src: url('../fontes/idroid.otf') format('opentype');
+    font-weight: normal;
+}
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600&display=swap');
+
+
+:root {
+    --cor0: #0466C8;
+    --cor1: #0353A4;
+    --cor2: #023E7D;
+    --cor3: #002855;
+    --cor4: #001845;
+    --cor5: #001233;
+    --cor6: #33415C;
+    --cor7: #5C677D;
+    --cor8: #7D8597;
+    --cor9: #979DAC;
+    --cor10: #979dac;
+
+    --font-padrao: Arial, Verdana, Helvetica, sans-serif;
+    --font-destaque: 'Source Sans Pro', sans-serif;
+    --font-android: 'Android', cursive;
+}
+
+/* config global */
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: var(--cor9);
+    font-family: var(--font-padrao);
+    font-size: 0.9em;
+}
+
+header {
+    background-color: var(--cor2);
+    min-height: 30px;
+    text-align: center;
+    padding-top: 30px;
+    color: white;
+    font-family: var(--font-destaque);
+    font-weight: 400;
+    font-size: 24px;
+
+}
+
+nav {
+    padding: 7px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.487);
+    background-color: var(--cor7);
+}
+
+nav > a {
+    text-decoration: none;
+    color: white;
+    margin-left: 10px;
+    padding: 7px 4px 7px 4px;
+}
+
+nav > a:hover {
+    background-color: var(--cor6);
+}
+
+
+main {
+    background-color: white;
+    min-width: 300px;
+    max-width: 1100px;
+    margin: auto;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    box-shadow: 4px 5px 5px rgba(0, 0, 0, 0.487);
+}
+
+/* TEXTOS */
+
+p {
+    padding: 3px 6px 10px 10px;
+}
+
+h1 {
+    padding: 3px 6px;
+    font-family: var(--font-destaque);
+    color: var(--cor5);
+}
+
+h2 {
+    padding: 3px 6px;
+    font-family: var(--font-destaque);
+    color: var(--cor4);
+}
+
+/* TABELA */
+table {
+    margin: auto;
+    text-align: left;
+}
+
+th {
+    font-family: var(--font-destaque);
+    font-size: 1.5em;
+    color: white;
+    background-image: linear-gradient(to bottom, var(--cor3), var(--cor0));
+    padding-left: 7px;
+    padding-right: 10px;
+}
+
+.th-red {
+    background-image: linear-gradient(to bottom, rgb(240, 16, 16), rgb(255, 173, 173));
+}
+
+td {
+    font-family: var(--font-padrao);    
+    border-bottom: 1px solid #ddd;
+    padding: 3px 8px 3px 1px;
+}
+
+
+/* BOTÕES */
+
+button {
+    background-color: var(--cor0);
+    color: white;
+    padding: 5px;
+    border-radius: 7px;
+    border-style: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.button {
+    text-decoration: none;
+    color: white;
+    background-color: var(--cor0);
+    border-radius: 7px;
+    border-style: none;
+    font-family: var(--font-padrao);
+    font-size: 16px;
+    padding: 1px 5px;
+}
+
+
+/* CARD's */
+.card {
+    display: inline-block;
+    height: 80px;
+    width: 80px;
+    border: 2px solid var(--cor6);
+    border-radius: 10px;
+    background-color: var(--cor9);
+}
+
+.card-number {
+    font-family: var(--font-destaque);
+    font-size: 1.4em;
+    font-weight: 600;
+    margin-left: 30px;
+    color: var(--cor2);
+}
+
+.card-legend {
+    font-family: var(--font-destaque);
+    font-size: 0.9em;
+    font-weight: 600;
+    color: var(--cor6);
+}
+
+
+/* NOTICES */
+.notice {
+    display: none;
+    border: 2px solid red;
+    border-radius: 7px;
+    width: 40%;
+    text-align: center;
+    padding-top: 10px;
+}
+
+
+
+
+td img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 100px;
+}
+
+
+
+.form {
+    margin-left: 30px;
+}
+
+
+/* task_list.html */
+.tlist-filtros {
+    display: block;
+    margin: auto;
+}
+
+
+
+footer {
+    text-align: center;
+    background-color: var(--cor7);
+    color: white;
+}
+
+footer > a {
+    text-decoration: none;
+    color: white;
+}
