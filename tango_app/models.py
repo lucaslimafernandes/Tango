@@ -34,10 +34,11 @@ class Task_responses(models.Model):
 #https://stackoverflow.com/questions/34305805/foreignkey-user-in-models
 #https://docs.djangoproject.com/en/3.2/topics/auth/customizing/#substituting-a-custom-user-model
 
-
+"""
 class User_role(models.Model):
     user_role = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     role = models.CharField(max_length=30)
     status_role = models.CharField(max_length=12)
     dt_init_role = models.DateTimeField()
     dt_end_role = models.DateTimeField(blank=True, null=True)
+"""

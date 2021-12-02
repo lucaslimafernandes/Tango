@@ -1,0 +1,8 @@
+*.pyc
+*~
+__pycache__
+tango-venv
+outros
+db.sqlite3
+/static
+.DS_Store

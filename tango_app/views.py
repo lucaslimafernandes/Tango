@@ -4,7 +4,7 @@ from django.urls import reverse
 from django.db.models import Count
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
-from .models import Task, Task_responses, User_role
+from .models import Task, Task_responses
 from django.contrib.auth.models import User
 from .forms import criarTaskResponse, form_criarTask, criarTask, form_newUser
 from datetime import date, datetime
@@ -74,28 +74,21 @@ def new_user(request):
 
 
 def che(request):
-    a = User.objects.filter(email='lucasdevpython@gmail.com').count()
-    b = User.objects.filter(email='lucas').count()
-
-
     
-    ag = make_password('atma2015')
-    return HttpResponse(ag)
+    usuario = request.user
+    #usuario_role = User_role.objects.filter(user_role=usuario).values()
+    #usuario_role = get_object_or_404(User_role, user_role=usuario)
+    return HttpResponse(usuario.is_staff)
 
 
+@login_required
 def task_list(request):
 
     #criar filtro por usuário
 
-    usuario = request.user.pk
-    #usuario_role = User_role.objects.filter(user_role=usuario).values()
-    usuario_role = get_object_or_404(User_role, user_role=usuario)
+    usuario = request.user
 
-    #return HttpResponse(usuario_role)
-
-    
-
-    if usuario_role.role == "SOLVER":
+    if usuario.is_staff:
 
         tasks = Task.objects.all()
         content = {'tasks':tasks, 'solver':'True'}
