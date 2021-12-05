@@ -177,9 +177,14 @@ def view_task(request, pk):
 
     else:
 
-        responses = Task_responses.objects.filter(task_id=item.id)
+        if item.user_owner == request.user or request.user.is_staff:
 
-        return render(request, 'tango_app/view_task.html', {'c':item, 'responses':responses})
+            responses = Task_responses.objects.filter(task_id=item.id)
+            #return HttpResponse(item)
+            return render(request, 'tango_app/view_task.html', {'c':item, 'responses':responses})
+
+        else:
+            return redirect(reverse('Tango:task_list'))
 
 
 @login_required

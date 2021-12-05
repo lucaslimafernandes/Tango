@@ -27,7 +27,7 @@
 
     --font-padrao: Arial, Verdana, Helvetica, sans-serif;
     --font-destaque: 'Source Sans Pro', sans-serif;
-    --font-android: 'Android', cursive;
+    /*--font-android: 'Android', cursive;*/
 }
 
 /* config global */
@@ -82,23 +82,58 @@ main {
     box-shadow: 4px 5px 5px rgba(0, 0, 0, 0.487);
 }
 
+section {
+    margin-top: 15px;
+}
+
 /* TEXTOS */
 
 p {
-    padding: 3px 6px 10px 10px;
+    padding: 3px 6px 10px 15px;
 }
 
 h1 {
     padding: 3px 6px;
+    margin-left: 10px;
+    margin-bottom: 15px;
     font-family: var(--font-destaque);
     color: var(--cor5);
 }
 
 h2 {
-    padding: 3px 6px;
+    padding: 3px 10px;
     font-family: var(--font-destaque);
     color: var(--cor4);
 }
+
+
+/* DIV's */
+
+/*
+https://jsfiddle.net/murilosrg/yzz4eehx/
+*/
+
+div.div-border {
+    margin-left: 10px;
+    padding: 0px 5px;
+    border: 1px solid black;
+    border-radius: 7px;
+    display: inline-block;
+}
+
+div.div-border-legend {
+    font-family: var(--font-destaque);
+    font-size: 1.2em;
+    color: var(--cor4);
+    padding: 0px 10px;
+    width: 50px;
+    text-align: left;
+    display: flex;
+    background-color: white;
+    margin-top: -0.6em;
+}
+
+
 
 /* TABELA */
 table {
@@ -135,7 +170,8 @@ button {
     border-radius: 7px;
     border-style: none;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
+    font-size: 14px;
+    margin-right: 5px;
 }
 
 button:hover {
@@ -151,7 +187,55 @@ button:hover {
     font-family: var(--font-padrao);
     font-size: 16px;
     padding: 1px 5px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
+
+/* CHECKBOX's */
+.ck-button {            
+    overflow:auto;
+    float:left;
+}
+
+.ck-button:hover {
+    cursor: pointer;
+}
+
+.ck-button label {
+    
+    float:left;
+    padding-left: 5px;
+    padding-right: 5px;
+    cursor: pointer;
+}
+
+.ck-button label span {
+    background-color: var(--cor10);
+    border-radius:7px;
+    /*border:1px solid var(--cor7);*/
+    font-size: 14px;
+    text-align:center;
+    padding: 5px 5px;
+    display:block;
+}
+
+.ck-button label input {
+    position:absolute;
+    top:-20px;
+}
+
+.ck-button input:checked + span {
+    background-color: rgb(240, 16, 16);
+    color:#fff;
+}
+
+
+/* TEXTAREA */
+
+textarea {
+    padding: 6px 6px;
+}
+
 
 
 /* CARD's */
@@ -181,13 +265,8 @@ button:hover {
 
 
 /* NOTICES */
-.notice {
+#check2passwd {
     display: none;
-    border: 2px solid red;
-    border-radius: 7px;
-    width: 40%;
-    text-align: center;
-    padding-top: 10px;
 }
 
 
